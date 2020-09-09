@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 @RequiredArgsConstructor
-public class MemsourceController {
+public class WebController {
 
     private final UserCredentialsService userCredentialsService;
 

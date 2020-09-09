@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 
 <head>
     <title>Spring Boot ajax example</title>
@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css"
           href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
 </head>
-<body id="x">
+<body>
 <table id="records_table" border='1'>
     <tr>
         <th>Name</th>
@@ -30,7 +30,7 @@
                 contentType: "application/json",
                 type: 'GET',
                 success: function (response) {
-                    var tr = '<tr>';
+                    let tr = '<tr>';
                     $.each(response, function (i, item) {
                         tr += '<td>' + item.name + '</td><td>' + item.status + '</td><td>' + item.sourceLang + '</td>';
                         let targetLangs = item.targetLangs.join(",")
