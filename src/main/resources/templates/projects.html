@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Spring Boot ajax example</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link rel="stylesheet" type="text/css"
+          href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+</head>
+<body id="x">
+<table id="records_table" border='1'>
+    <tr>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Source language</th>
+        <th>Target languages</th>
+    </tr>
+</table>
+
+
+
+<script type="text/javascript"
+        src="webjars/jquery/2.2.4/jquery.min.js"></script>
+
+<script type="text/javascript" >
+
+            $.ajax({
+                url: '/api/projects/',
+                contentType: "application/json",
+                type: 'GET',
+                success: function (response) {
+                    var tr = '<tr>';
+                    $.each(response, function (i, item) {
+                        tr += '<td>' + item.name + '</td><td>' + item.status + '</td><td>' + item.sourceLang + '</td>';
+                        let targetLangs = item.targetLangs.join(",")
+                        tr += '<td>' + targetLangs + '</td></tr>'
+                        $('#records_table').append(tr);
+                    });
+
+                }
+            });
+
+</script>
+
+</body>
+</html>
