@@ -6,7 +6,6 @@ import cz.mkalina.memsourcedemo.dto.ProjectsResponse;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
-import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
